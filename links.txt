@@ -1,0 +1,18 @@
+ubicacion
+https://www.flaticon.es/icono-gratis/ubicacion_3287974?term=location&page=1&position=92&origin=search&related_id=3287974
+clave de api google maps
+AIzaSyAOaRkq9mZFsIeZ9Ruqh_A_9YDNNX5A6Bc
+paleta
+https://paletadecolores.com.mx/paleta/f2f2f2/348e91/1c5052/213635/0a0c0d/
+fuentes
+https://fonts.google.com/specimen/Rajdhani?preview.text=SIFLOTA&preview.size=74&preview.text_type=custom&category=Sans+Serif
+volante
+https://www.flaticon.es/icono-gratis/volante-de-coche_2087?term=volante&page=1&position=1&origin=search&related_id=2087
+carro
+https://www.flaticon.es/icono-gratis/coche_89102?term=auto&page=1&position=5&origin=search&related_id=89102
+herramientas
+https://www.flaticon.es/icono-gratis/configuraciones_100852?term=herramientas&page=1&position=3&origin=search&related_id=100852
+usuario
+https://www.flaticon.es/icono-gratis/usuario_1077114?term=usuario&page=1&position=4&origin=search&related_id=1077114
+contra
+https://www.flaticon.es/icono-gratis/cerrar-con-llave_6372424?term=contrase%C3%B1a&page=1&position=25&origin=search&related_id=6372424
