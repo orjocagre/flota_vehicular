@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./css/login.css">
     <link rel="stylesheet" href="./css/login-tablet.css" media="(min-width: 500px)">
     <link rel="stylesheet" href="./css/login-desktop.css" media="(min-width: 1000px)">
-    
+
 </head>
 
 <body>
@@ -23,17 +23,17 @@
         </div>
         <div class="contenedor-principal">
             <div class="contenedor-titulo">
-                <h1>FL<span></span>TA</h1>
+                <a href="./mainpage.php">FL<span></span>TA</a>
             </div>
             <div class="division"></div>
             <form class="contenedor-login">
                 <h1>Bienvenido de vuelta</h1>
                 <div class="contenedor-input">
-                    <img src="./iconos/usuariolight.png" alt="">
+                    <span class="img-usuario"></span>
                     <input type="text" placeholder="usuario">
                 </div>
                 <div class="contenedor-input">
-                    <img src="./iconos/contralight.png" alt="">
+                    <span class="img-contra"></span>
                     <input type="password" placeholder="contraseña">
                 </div>
                 <input class="btn-enviar" type="submit" value="Iniciar Sesion">
@@ -45,6 +45,11 @@
             </form>
         </div>
     </main>
+    <script>
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.body.classList.add('body-darkMode');
+        }
+    </script>
 </body>
 
 </html>

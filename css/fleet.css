@@ -1,0 +1,5 @@
+.main {
+    grid-area: main;
+    background-color: var(--light);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.35);
+}

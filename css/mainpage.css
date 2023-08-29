@@ -1,111 +1,42 @@
-:root {
-    --light: #f2f2f2;
-    --primary: #348e91;
-    --secondary: #1c5052;
-    --base: #213635;
-    --dark: #0a0c0d;
-}
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-html {
-    font-size: 62.5%;
-    font-family: 'Montserrat', sans-serif;
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 3rem;
-}
-
-header h1 {
-    color: var(--primary);
-    font-family: 'Rajdhani', sans-serif;
-    font-weight: 600;
-    font-size: 6rem;
-    /* letter-spacing: 0.5rem; */
-}
-
-header h1 span {
-    width: 4rem;
-    height: 4rem;
-    /* margin-right: 0.3rem; */
-    display: inline-block;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url(../iconos/volante.png);
-}
-
-header ul {
-    list-style-type: none;
-}
-
-header a {
-    text-decoration: none;
-    font-size: 2rem;
-    font-weight: 600;
-    color: var(--secondary);
-    border: 1px solid var(--secondary);
-    border-radius: 0.5rem;
-    padding: 1rem;
-}
-body > div {
-    display: flex;
-    justify-content: stretch;
+.main {
+    grid-area: main;
     background-color: var(--light);
-    height: calc(100vh - 9rem);
-
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.35);
+    display: flex;
+    flex-flow: wrap;
+    justify-content: stretch;
+    padding: 10px;
 }
-aside {
-    background-color: white;
-    width: 45rem;
-    margin: 1rem;
-    padding: 1rem;
-    border-radius: 0.5rem;
-}
-aside ul {
-    list-style-type: none;
-}
-aside ul li a {
-    display: block;
-    color: var(--secondary);
-    font-size: 3rem;
-    text-decoration: none;
-    padding: 1rem;    
-}
-aside ul a span {
-    vertical-align: middle;
-    display: inline-block;
-    width: 4rem;
-    height: 4rem;
-    margin-right: 1rem;
-    background-position: center;    
-    background-repeat: no-repeat;
-    background-size: cover;
-}   
-aside .btn-localizacion span {
-    background-image: url(../iconos/ubicacion.png);
-}
-aside .btn-mantenimiento span {
-    background-image: url(../iconos/configuraciones.png);
-}
-aside .btn-flota span {
-    background-image: url(../iconos/coche.png);
-}
-main {
-    width: 100%;
-    border-radius: 0.5rem;
-    background-color: white;
-    margin: 1rem 1rem 1rem 0;
+.main-hidden {
+    display: none;
 }
 
-#map {
+.statisticContainer {
+    height: 450px;
+    max-width: 500;
+    min-width: 250px;
+    flex-grow: 1;
+    background-color: var(--white);
+    border-radius: 5px;
+    margin: 10px;
+
+}
+
+/* #map {
     width: 300px;
     height: 300px;
+} */
+
+
+/* tablet */
+@media (min-width: 500px) {
+    .statisticContainer_large {
+        max-width: 1000px;
+        min-width: 430px;
+    }
 }
 
+/* laptop */
+@media (min-width: 1000px) {
+
+}

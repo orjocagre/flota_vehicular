@@ -1,0 +1,148 @@
+:root {
+    --white: white;
+    --light: #f2f2f2;
+    --light2: #e1e1e1;
+    --primary: #348e91;
+    --secondary: #1c5052;
+    --base: #213635;
+    --dark: #0a0c0d;
+
+    --volante: url(../iconos/volanteblanco.png);
+    --ubicacion: url(../iconos/ubicacion.png);
+    --coche: url(../iconos/coche.png);
+    --config: url(../iconos/configuraciones.png);
+    --menu: url(../iconos/menublanco.png);
+    --light-mode: url(../iconos/luna.png);
+    --light-mode2: url(../iconos/lunablanca.png);
+    --estadisticas: url(../iconos/estadisticasazul.png);
+}
+
+.body-darkMode {
+    --white: black;
+    --light: #213635;
+    --light2: #0a0c0d;
+    --primary: #348e91;
+    --secondary: #348e91;
+    --base: #e1e1e1;
+    --dark: #f2f2f2;
+
+    --volante: url(../iconos/volantenegro.png);
+    --ubicacion: url(../iconos/ubicacionblanco.png);
+    --coche: url(../iconos/cocheblanco.png);
+    --config: url(../iconos/configuracionesblanco.png);
+    --menu: url(../iconos/menunegro.png);
+    --light-mode: url(../iconos/sol.png);
+    --light-mode2: url(../iconos/solazul.png);
+    --estadisticas: url(../iconos/estadisticasblanco.png);
+
+
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "header header"
+        "sidebar main";
+    min-height: 100vh;
+}
+
+.header {
+    grid-area: header;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+    background-color: var(--primary);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-bottom: 1px solid var(--base);
+}
+
+.logo {
+    font-size: 5rem;
+    color: var(--white);
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+}
+
+.logo_icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    /* margin-right: 0.3rem; */
+    display: inline-block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: var(--volante);
+}
+
+.nav_toggleButton {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: var(--primary);
+    border: none;
+    background-image: var(--menu);
+}
+
+.nav_list {
+    list-style-type: none;
+    display: none;
+}
+
+.nav_darkButton {
+    height: 4rem;
+    width: 4rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: var(--light-mode);
+    background-color: var(--primary);
+    border: 0.5rem solid transparent;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.nav_user {
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--white);
+    border: 1px solid var(--white);
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+
+/* tablet */
+@media (min-width: 500px) {
+    .nav_toggleButton {
+        display: none;
+    }
+
+    .nav_list {
+        display: flex;
+        align-items: center;
+    }
+
+    .nav_item {
+        margin-left: 20px;
+    }
+}
+
+/* laptop */
+@media (min-width: 1000px) {}

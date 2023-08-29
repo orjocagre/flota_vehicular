@@ -1,0 +1,107 @@
+.sideBar {
+    grid-area: sidebar;
+    display: none;
+    width: 100vw;
+    background-color: var(--light2);
+    border-right: 1px solid var(--base);
+}
+
+.sideBar-visible {
+    display: block;
+}
+
+.sideBar_list {
+    list-style-type: none;
+}
+
+.sideBar_item {
+    display: flex;
+    align-items: center;
+    color: var(--dark);
+    font-size: 2.2rem;
+    font-weight: 400;
+    text-decoration: none;
+    padding: 1rem;
+}
+.sideBar_item-selected {
+    background-color: var(--light);
+    border-top: 1px solid var(--base);
+    border-bottom: 1px solid var(--base);
+}
+
+.sideBar_item-user {
+    font-size: 3rem;
+    border-bottom: 1px solid var(--base);
+}
+
+.sideBar_item-darkButton {
+    border: none;
+    border-bottom: 1px solid var(--base);
+    background-color: transparent;
+    width: 100%;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.sideBar_icon {
+    vertical-align: middle;
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.sideBar_text {
+    margin-left: 10px;
+}
+
+#sideBar_btnLocalizacion span {
+    background-image: var(--ubicacion);
+}
+
+#sideBar_btnMantenimiento span {
+    background-image: var(--config);
+}
+
+#sideBar_btnFlota span {
+    background-image: var(--coche);
+}
+#sideBar_btnEstadisticas span {
+    background-image: var(--estadisticas);
+}
+
+#sideBar_btnTheme span {
+    background-image: var(--light-mode2);
+}
+
+/* tablet */
+@media (min-width: 500px) {
+    .sideBar {
+        display: block;
+        width: fit-content;
+    }
+    .sideBar_item:hover {
+        background-color: var(--light);
+    }
+    .sideBar_text {
+        display: none;
+    }
+
+    .sideBar_item-darkButton {
+        display: none;
+    }
+
+    .sideBar_item-user {
+        display: none;
+    }
+}
+
+/* laptop */
+@media (min-width: 1000px) {
+
+    .sideBar_text {
+        display: block;
+    }
+}

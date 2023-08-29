@@ -16,3 +16,11 @@ usuario
 https://www.flaticon.es/icono-gratis/usuario_1077114?term=usuario&page=1&position=4&origin=search&related_id=1077114
 contra
 https://www.flaticon.es/icono-gratis/cerrar-con-llave_6372424?term=contrase%C3%B1a&page=1&position=25&origin=search&related_id=6372424
+menu
+https://www.flaticon.es/icono-gratis/menu_2976215?term=menu&page=1&position=2&origin=search&related_id=2976215
+luna
+https://www.flaticon.es/icono-gratis/luna_606807?term=luna&page=1&position=3&origin=search&related_id=606807
+sol
+https://www.flaticon.es/icono-gratis/soleado_2392508?term=sol&page=1&position=1&origin=search&related_id=2392508
+estadisticas
+https://www.flaticon.es/icono-gratis/estadisticas_1170667?term=estadisticas&page=1&position=35&origin=search&related_id=1170667
