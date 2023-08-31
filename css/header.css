@@ -22,7 +22,7 @@
     --light: #213635;
     --light2: #0a0c0d;
     --primary: #348e91;
-    --secondary: #348e91;
+    --secondary: #1c5052;
     --base: #e1e1e1;
     --dark: #f2f2f2;
 
@@ -50,17 +50,16 @@ html {
 }
 
 body {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto 1fr;
-    grid-template-areas:
-        "header header"
-        "sidebar main";
     min-height: 100vh;
 }
 
 .header {
-    grid-area: header;
+    position: fixed;
+    z-index: 3;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -127,6 +126,12 @@ body {
     padding: 1rem;
 }
 
+.main {
+    min-height: 100vh;
+    padding-top: 70px;
+    background-color: var(--light);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.35);
+}
 
 /* tablet */
 @media (min-width: 500px) {
@@ -142,7 +147,15 @@ body {
     .nav_item {
         margin-left: 20px;
     }
+
+    .main {
+        margin-left: 50px;
+    }
 }
 
 /* laptop */
-@media (min-width: 1000px) {}
+@media (min-width: 1000px) {
+    .main {
+        margin-left: 250px;
+    }
+}

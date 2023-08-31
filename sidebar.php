@@ -58,6 +58,15 @@
                 <p class="sideBar_text">Flota</p>
             </a></li>
 
+        <li><a class="sideBar_item" id="sideBar_btnFlota" href="#">
+                <span class="sideBar_icon"></span>
+                <p class="sideBar_text">Flota</p>
+            </a></li>
+        <li><a class="sideBar_item" id="sideBar_btnLocalizacion" href="#">
+                <span class="sideBar_icon"></span>
+                <p class="sideBar_text">Localización</p>
+            </a></li>
+       
 
 
 

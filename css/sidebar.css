@@ -1,13 +1,16 @@
 .sideBar {
-    grid-area: sidebar;
     display: none;
     width: 100vw;
+    height: fit-content;
+    min-height: 100vh;
     background-color: var(--light2);
     border-right: 1px solid var(--base);
 }
 
 .sideBar-visible {
     display: block;
+    position: static;
+    padding-top: 70px;
 }
 
 .sideBar_list {
@@ -23,6 +26,7 @@
     text-decoration: none;
     padding: 1rem;
 }
+
 .sideBar_item-selected {
     background-color: var(--light);
     border-top: 1px solid var(--base);
@@ -55,6 +59,7 @@
 
 .sideBar_text {
     margin-left: 10px;
+    width: 190px;
 }
 
 #sideBar_btnLocalizacion span {
@@ -68,6 +73,7 @@
 #sideBar_btnFlota span {
     background-image: var(--coche);
 }
+
 #sideBar_btnEstadisticas span {
     background-image: var(--estadisticas);
 }
@@ -79,12 +85,17 @@
 /* tablet */
 @media (min-width: 500px) {
     .sideBar {
+        position: fixed;
+        top: 70px;
         display: block;
         width: fit-content;
+        height: calc(100vh - 70px);
+        overflow-y: auto;
     }
     .sideBar_item:hover {
         background-color: var(--light);
     }
+
     .sideBar_text {
         display: none;
     }
