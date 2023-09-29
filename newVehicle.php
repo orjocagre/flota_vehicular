@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/sidebar.css">
     <link rel="stylesheet" href="./css/newVehicle.css">
+    <link rel="stylesheet" href="./css/newVehicletablet.css" media="(min-width: 500px)">
+    <link rel="stylesheet" href="./css/newVehicledesktop.css" media="(min-width: 1000px)">
 </head>
 
 <body>
@@ -23,6 +25,9 @@
     <main class="main">
         <form action="./fleet.php" method="get" class="vehicle_form form">
 
+            <div class="form_header">
+                <h1 class="form_title">nuevo vehiculo</h1>
+            </div>
             <div class="form_body">
                 <label class="form_label" for="brand">Marca</label>
                 <input class="form_text" type="text" name="brand">
@@ -31,35 +36,30 @@
                 <input class="form_text" type="text" name="model">
 
                 <label class="form_label" for="Year">Año</label>
-                <input class="form_text" type="text" name="Year">
+                <input class="form_text" type="text" name="year">
 
-                <label class="form_label" for="number">Placa</label>
-                <input class="form_text" type="text" name="number">
+                <label class="form_label" for="lpn">Placa</label>
+                <input class="form_text" type="text" name="lpn">
 
-                <label class="form_label" for="type">Tipo</label>
-                <select name="type" id="type" class="form_select">
-                    <option class="form_option" value="motocicleta">Motocicleta</option>
-                    <option class="form_option" value="motocarro">Ciclomotor</option>
-                    <option class="form_option" value="turismoPequeño">Turismo Pequeño</option>
-                    <option class="form_option" value="turismoGrande">Turismo Grande</option>
-                    <option class="form_option" value="turismoPickup">Turismo Pickup</option>
-                    <option class="form_option" value="Furgoneta">Microbus</option>
-                    <option class="form_option" value="autobus">Autobus</option>
-                    <option class="form_option" value="camion">Camión</option>
+                <label class="form_label" for="idVehicleType">Tipo</label>
+                <select name="idVehicleType" id="type" class="form_select">
+                    <option class="form_option" value="1">Motocicleta</option>
+                    <option class="form_option" value="2">Ciclomotor</option>
+                    <option class="form_option" value="3">Turismo Pequeño</option>
+                    <option class="form_option" value="4">Turismo Grande</option>
+                    <option class="form_option" value="5">Turismo Pickup</option>
+                    <option class="form_option" value="6">Microbus</option>
+                    <option class="form_option" value="7">Autobus</option>
+                    <option class="form_option" value="8">Camión</option>
                 </select>
 
 
             </div>
-            <div class="form_header">
-                <h1 class="form_title">nuevo vehiculo</h1>
-                <div class="form_footer">
-                    <input class="button" type="button" value="Cancelar">
-                    <input class="button button-special" type="submit" value="Guardar">
+            <div class="form_footer">
+                <a href="./fleet.php" class="button">Cancelar</a>
+                <input class="button button-special" type="submit" value="Guardar">
 
-                </div>
             </div>
-
-
         </form>
     </main>
     <script src="./headerSidebar.js"></script>

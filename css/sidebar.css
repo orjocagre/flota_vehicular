@@ -27,6 +27,10 @@
     padding: 1rem;
 }
 
+.sideBar_item-selectedFirst {
+    background-color: var(--light);
+    border-bottom: 1px solid var(--base);
+}
 .sideBar_item-selected {
     background-color: var(--light);
     border-top: 1px solid var(--base);
@@ -76,6 +80,10 @@
 
 #sideBar_btnEstadisticas span {
     background-image: var(--estadisticas);
+}
+
+#sideBar_btnDriver span {
+    background-image: var(--driver);
 }
 
 #sideBar_btnTheme span {

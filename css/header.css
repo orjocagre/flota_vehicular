@@ -15,6 +15,7 @@
     --light-mode: url(../iconos/luna.png);
     --light-mode2: url(../iconos/lunablanca.png);
     --estadisticas: url(../iconos/estadisticasazul.png);
+    --driver: url(../iconos/driver.png);
 }
 
 .body-darkMode {
@@ -34,6 +35,8 @@
     --light-mode: url(../iconos/sol.png);
     --light-mode2: url(../iconos/solazul.png);
     --estadisticas: url(../iconos/estadisticasblanco.png);
+    --driver: url(../iconos/driverWhite.png);
+
 
 
 }
