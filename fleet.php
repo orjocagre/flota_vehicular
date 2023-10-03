@@ -12,34 +12,34 @@ if ($_GET) {
 }
 
 
-include "./conexion.php";
+// include "./conexion.php";
 
-$sql = "SELECT * FROM vehicle WHERE lpn = 'TU-4324F'";
+// $sql = "SELECT * FROM vehicle WHERE lpn = 'TU-4324F'";
 
-$result = mysqli_query($conn, $sql);
+// $result = mysqli_query($conn, $sql);
 
-$row = mysqli_fetch_assoc($result);
+// $row = mysqli_fetch_assoc($result);
 
-echo $row['model'];
-echo $row['brand'];
+// echo $row['model'];
+// echo $row['brand'];
 
-mysqli_free_result($result);
-
-
-
-$sql = "SELECT * FROM vehicle";
-$result = mysqli_query($conn, $sql);
-
-if(mysqli_num_rows($result) > 0) {
-    while($row = mysqli_fetch_assoc($result)) {
-        echo $row['model'];
-        echo $row['brand'];
-    }
-}
+// mysqli_free_result($result);
 
 
 
-mysqli_close($conn);
+// $sql = "SELECT * FROM vehicle";
+// $result = mysqli_query($conn, $sql);
+
+// if(mysqli_num_rows($result) > 0) {
+//     while($row = mysqli_fetch_assoc($result)) {
+//         echo $row['model'];
+//         echo $row['brand'];
+//     }
+// }
+
+
+
+// mysqli_close($conn);
 
 
 

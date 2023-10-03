@@ -40,7 +40,7 @@
 
                 <div class="contenedor-registrarse">
                     <p>Aun no tienes cuenta?</p>
-                    <input class="btn-secundario" type="button" value="Registrate">
+                    <a href="./signInType.php" class="btn-secundario"> Registrate</a> 
                 </div>
             </form>
         </div>
