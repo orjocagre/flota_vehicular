@@ -3,7 +3,9 @@
 if ($_GET) {
     include "./conexion.php";
 
-    $sql = "SELECT signInAdminUser('" . $_GET['firstName'] . "', '" . $_GET['secondName'] . "', '" . $_GET['firstSurname'] . "', '" . $_GET['secondSurname'] . "', '" . $_GET['id'] . "', '" . $_GET['birthDate'] . "', " . $_GET['sex'] . ", " . $_GET['phone'] . ", '" . $_GET['mail'] . "', '" . $_GET['userName'] . "', '" . $_GET['password'] . "', '". $_GET['businessName'] . "', '" . $_GET['businessLogo'] . "');";
+    $sql = "SELECT signInDriverUser('" . $_GET['firstName'] . "', '" . $_GET['secondName'] . "', '" . $_GET['firstSurname'] . "', '" . $_GET['secondSurname'] . "', '" . $_GET['id'] . "', '" . $_GET['birthDate'] . "', " . $_GET['sex'] . ", " . $_GET['phone'] . ", '" . $_GET['mail'] . "', '" . $_GET['userName'] . "', '" . $_GET['password'] . "');";
+
+    // echo mysqli_query($conn,$sql);
 
     $result = mysqli_query($conn, $sql);
 

@@ -23,7 +23,7 @@
     <?php include "./sidebar.php" ?>
 
     <main class="main">
-        <form action="./fleet.php" method="get" class="vehicle_form form">
+        <form action="./signInDriverController.php" method="get" class="vehicle_form form">
 
             <div class="form_header">
                 <h1 class="form_title">crear cuenta</h1>
@@ -44,14 +44,14 @@
                 <label class="form_label" for="secondName">Segundo nombre</label>
                 <input class="form_text" type="text" name="secondName">
 
-                <label class="form_label" for="firstSurName">Primer apellido</label>
-                <input class="form_text" type="text" name="firstSurName">
+                <label class="form_label" for="firstSurname">Primer apellido</label>
+                <input class="form_text" type="text" name="firstSurname">
 
-                <label class="form_label" for="secondSurName">Segundo apellido</label>
-                <input class="form_text" type="text" name="secondSurName">
+                <label class="form_label" for="secondSurname">Segundo apellido</label>
+                <input class="form_text" type="text" name="secondSurname">
 
-                <label class="form_label" for="age">Edad</label>
-                <input class="form_text" type="text" name="age">
+                <label class="form_label" for="birthDate">Fecha de nacimiento</label>
+                <input class="form_text" type="text" name="birthDate">
 
                 <label class="form_label" for="sex">Género</label>
                 <select name="sex" id="sex" class="form_select">
@@ -61,6 +61,12 @@
 
                 <label class="form_label" for="id">Cedula</label>
                 <input class="form_text" type="text" name="id">
+
+                <label class="form_label" for="phone">Telefono</label>
+                <input class="form_text" type="text" name="phone">
+
+                <label class="form_label" for="mail">Correo</label>
+                <input class="form_text" type="text" name="mail">
 
                 <label class="form_label" for="licenseType">Licencia</label>
 

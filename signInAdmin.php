@@ -23,48 +23,55 @@
     <?php include "./sidebar.php" ?>
 
     <main class="main">
-        <form action="./fleet.php" method="get" class="vehicle_form form">
+        <form action="./signInAdminController.php" method="get" class="vehicle_form form">
 
             <div class="form_header">
                 <h1 class="form_title">crear cuenta</h1>
             </div>
             <div class="form_body">
+                
                 <label class="form_label" for="userName">Nombre de usuario</label>
                 <input class="form_text" type="text" name="userName">
-
+                
                 <label class="form_label" for="password">Constraseña</label>
                 <input class="form_text" type="password" name="password">
-
+                
                 <label class="form_label" for="passwordConfirmation">Confirmar constraseña</label>
                 <input class="form_text" type="password" name="passwordConfirmation">
-
+                
                 <label class="form_label" for="firstName">Primer nombre</label>
                 <input class="form_text" type="text" name="firstName">
-
+                
                 <label class="form_label" for="secondName">Segundo nombre</label>
                 <input class="form_text" type="text" name="secondName">
-
-                <label class="form_label" for="firstSurName">Primer apellido</label>
-                <input class="form_text" type="text" name="firstSurName">
-
-                <label class="form_label" for="secondSurName">Segundo apellido</label>
-                <input class="form_text" type="text" name="secondSurName">
-
-                <label class="form_label" for="age">Edad</label>
-                <input class="form_text" type="text" name="age">
-
+                
+                <label class="form_label" for="firstSurname">Primer apellido</label>
+                <input class="form_text" type="text" name="firstSurname">
+                
+                <label class="form_label" for="secondSurname">Segundo apellido</label>
+                <input class="form_text" type="text" name="secondSurname">
+                
+                <label class="form_label" for="birthDate">Fecha de nacimiento</label>
+                <input class="form_text" type="text" name="birthDate">
+                
                 <label class="form_label" for="sex">Género</label>
                 <select name="sex" id="sex" class="form_select">
                     <option class="form_option" value="1">Masculino</option>
                     <option class="form_option" value="2">Femenino</option>
                 </select>
-
+                
                 <label class="form_label" for="id">Cedula</label>
                 <input class="form_text" type="text" name="id">
+                
+                <label class="form_label" for="phone">Telefono</label>
+                <input class="form_text" type="text" name="phone">
+
+                <label class="form_label" for="mail">Correo</label>
+                <input class="form_text" type="text" name="mail">
 
                 <label class="form_label" for="businessName">Nombre de la empresa</label>
                 <input class="form_text" type="text" name="businessName">
-
+                
                 <label class="form_label" for="businessLogo">Logo de la empresa</label>
                 <label class="form_fileContainer" for="businessLogo">
                     <label class="form_fileButton" for="businessLogo">Seleccionar imagen</label>
