@@ -142,12 +142,59 @@ CREATE TABLE
         CONSTRAINT FK_location_vehicleAsignation FOREIGN KEY (idVehicleAsignation) REFERENCES vehicleAsignation(idVehicleAsignation)
     );
 
+CREATE TABLE
+    periodType (
+        idPeriodType INT AUTO_INCREMENT NOT NULL,
+        description VARCHAR(15) NOT NULL,
+        PRIMARY KEY (idPeriodType)
+    );
+
+CREATE TABLE
+    baseMaintenanceType (
+        idBaseMaintenanceType INT AUTO_INCREMENT NOT NULL,
+        description VARCHAR(200) NOT NULL,
+        period INT NOT NULL,
+        idPeriodType INT NOT NULL,
+        PRIMARY KEY (idBaseMaintenanceType),
+        CONSTRAINT FK_baseMaintenanceType_periodType FOREIGN KEY (idPeriodType) REFERENCES periodType(idPeriodType)
+    );
+
+CREATE TABLE
+    maintenanceType (
+        idMaintenanceType INT AUTO_INCREMENT NOT NULL,
+        description VARCHAR(200) NOT NULL,
+        period INT NOT NULL,
+        idPeriodType INT NOT NULL,
+        PRIMARY KEY (idMaintenanceType),
+        CONSTRAINT FK_maintenanceType_periodType FOREIGN KEY (idPeriodType) REFERENCES periodType(idPeriodType)
+    );
+
+CREATE TABLE
+    baseMaintenanceTypeVehicleType (
+        idBaseMaintenanceType INT NOT NULL,
+        idVehicleType INT NOT NULL,
+        PRIMARY KEY (
+            idBaseMaintenanceType,
+            idVehicleType
+        ),
+        CONSTRAINT FK_baseMaintenanceTypeVehicleType_baseMaintenanceType FOREIGN KEY (idBaseMaintenanceType) REFERENCES baseMaintenanceType(idBaseMaintenanceType),
+        CONSTRAINT FK_baseMaintenanceTypeVehicleType_vehicleType FOREIGN KEY (idVehicleType) REFERENCES vehicleType(idVehicleType)
+    );
+
+CREATE TABLE
+    maintenance (
+        idMaintenance INT AUTO_INCREMENT NOT NULL,
+        idMaintenanceType INT NOT NULL,
+        date DATETIME NOT NULL,
+        PRIMARY KEY (idMaintenance),
+        CONSTRAINT FK_maintenance_maintenanceType FOREIGN KEY (idMaintenanceType) REFERENCES maintenanceType(idMaintenanceType)
+    );
 
 -- ____________________data_______________________________________________
 
 INSERT INTO sex (description) VALUES ("masculino"),("femenino");
 INSERT INTO category (description) VALUES ("categoría 1"),("categoría 2"),("categoría 3"),("categoría 4"),("categoría 5"),("categoría 6"),("categoría 7");
-
+INSERT INTO periodType (description) VALUES ("km"), ("dias");
 
 -- ____________________procedures and functions_______________________________________________
 
@@ -240,3 +287,10 @@ DELIMITER ;
 -- SELECT signInDriverUser("Orlando", "Jose", "Caceres", "Green", "C3", "2019-01-01", 1, 87126887, "orlando114@gmail.com", "orla4", "contra");
 
 -- DROP PROCEDURE IF EXISTS insertCategory;
+
+-- SELECT * FROM person;
+-- SELECT * FROM user;
+-- SELECT COUNT(*) FROM user WHERE user.userName = "Pedro5" AND user.password = "cont";
+
+
+

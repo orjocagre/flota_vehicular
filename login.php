@@ -1,3 +1,16 @@
+<?php
+if($_GET) {
+    $userName = $_GET['userName'];
+    $visible = "";
+}
+else {
+    $userName = "";
+    $visible = "invisible";
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,16 +39,17 @@
                 <a href="./mainpage.php">FL<span></span>TA</a>
             </div>
             <div class="division"></div>
-            <form class="contenedor-login">
+            <form action="./loginController.php" method="get" class="contenedor-login">
                 <h1>Bienvenido de vuelta</h1>
                 <div class="contenedor-input">
                     <span class="img-usuario"></span>
-                    <input type="text" placeholder="usuario">
+                    <input type="text" placeholder="usuario" name="userName" value="<?php echo $userName; ?>">
                 </div>
                 <div class="contenedor-input">
                     <span class="img-contra"></span>
-                    <input type="password" placeholder="contraseña">
+                    <input type="password" placeholder="contraseña" name="password">
                 </div>
+                <p class="login-error <?php echo $visible;?>">Nombre de usuario o contraseña incorrectos</p>
                 <input class="btn-enviar" type="submit" value="Iniciar Sesion">
 
                 <div class="contenedor-registrarse">

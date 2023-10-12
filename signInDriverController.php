@@ -3,7 +3,20 @@
 if ($_GET) {
     include "./conexion.php";
 
-    $sql = "SELECT signInDriverUser('" . $_GET['firstName'] . "', '" . $_GET['secondName'] . "', '" . $_GET['firstSurname'] . "', '" . $_GET['secondSurname'] . "', '" . $_GET['id'] . "', '" . $_GET['birthDate'] . "', " . $_GET['sex'] . ", " . $_GET['phone'] . ", '" . $_GET['mail'] . "', '" . $_GET['userName'] . "', '" . $_GET['password'] . "');";
+
+    $firstName = $_GET['firstName'];
+    $secondName = $_GET['secondName'];
+    $firstSurname = $_GET['firstSurname'];
+    $secondSurname = $_GET['secondSurname'];
+    $id = $_GET['id'];
+    $birthDate = $_GET['birthDate'];
+    $sex = $_GET['sex'];
+    $phone = $_GET['phone'];
+    $mail = $_GET['mail'];
+    $userName = $_GET['userName'];
+    $password = $_GET['password'];
+
+    $sql = "SELECT signInDriverUser('$firstName', '$secondName', '$firstSurname', '$secondSurname', '$id', '$birthDate', $sex, $phone, '$mail', '$userName', '$password');";
 
     // echo mysqli_query($conn,$sql);
 
@@ -16,6 +29,7 @@ if ($_GET) {
         while ($row = mysqli_fetch_assoc($result)) {
             print_r($row);
         }
+        header("Location: ./location.php");
     }
     mysqli_close($conn);
 }
