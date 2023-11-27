@@ -1,4 +1,4 @@
-DROP DATABASE flotadb;
+DROP DATABASE IF EXISTS flotadb;
 
 CREATE DATABASE flotadb;
 
@@ -290,7 +290,6 @@ DELIMITER ;
 
 -- SELECT * FROM person;
 -- SELECT * FROM user;
+-- SELECT * FROM business;
 -- SELECT COUNT(*) FROM user WHERE user.userName = "Pedro5" AND user.password = "cont";
-
-
-
+-- SELECT name FROM business WHERE business.idBusiness = adminUser.idBusiness;

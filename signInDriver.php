@@ -11,18 +11,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rajdhani:wght@600&display=swap" rel="stylesheet">
 
 
-    <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/sidebar.css">
-    <link rel="stylesheet" href="./css/newVehicle.css">
-    <link rel="stylesheet" href="./css/newVehicletablet.css" media="(min-width: 500px)">
-    <link rel="stylesheet" href="./css/newVehicledesktop.css" media="(min-width: 1000px)">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
     <?php include "./header.php" ?>
     <?php include "./sidebar.php" ?>
 
-    <main class="main">
+    <main class="main main-form">
         <form action="./signInDriverController.php" method="get" class="vehicle_form form">
 
             <div class="form_header">

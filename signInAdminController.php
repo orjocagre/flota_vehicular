@@ -29,6 +29,8 @@ if ($_GET) {
         while ($row = mysqli_fetch_assoc($result)) {
             print_r($row);
         }
+
+
         header("Location: ./location.php");
     }
     mysqli_close($conn);

@@ -1,22 +1,4 @@
-/* :root {
-    --light: #f2f2f2;
-    --primary: #348e91;
-    --secondary: #1c5052;
-    --base: #213635;
-    --dark: #0a0c0d;
 
-    --backgroundmask: rgba(142, 251, 255, 0.5);
-
-
-    --white: black;
-    --light: #0a0c0d;
-    --primary: #348e91;
-    --secondary: #348e91;
-    --base: #f2f2f2;
-    --dark: white;
-
-    --backgroundmask: rgba(3, 23, 23, 0.5);
-} */
 .contenedor-principal {
     left: 15vw;
     width: 70vw;

@@ -11,58 +11,54 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rajdhani:wght@600&display=swap" rel="stylesheet">
 
 
-    <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/sidebar.css">
-    <link rel="stylesheet" href="./css/newVehicle.css">
-    <link rel="stylesheet" href="./css/newVehicletablet.css" media="(min-width: 500px)">
-    <link rel="stylesheet" href="./css/newVehicledesktop.css" media="(min-width: 1000px)">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
     <?php include "./header.php" ?>
     <?php include "./sidebar.php" ?>
 
-    <main class="main">
+    <main class="main main-form">
         <form action="./signInAdminController.php" method="get" class="vehicle_form form">
 
             <div class="form_header">
                 <h1 class="form_title">crear cuenta</h1>
             </div>
             <div class="form_body">
-                
+
                 <label class="form_label" for="userName">Nombre de usuario</label>
                 <input class="form_text" type="text" name="userName">
-                
+
                 <label class="form_label" for="password">Constraseña</label>
                 <input class="form_text" type="password" name="password">
-                
+
                 <label class="form_label" for="passwordConfirmation">Confirmar constraseña</label>
                 <input class="form_text" type="password" name="passwordConfirmation">
-                
+
                 <label class="form_label" for="firstName">Primer nombre</label>
                 <input class="form_text" type="text" name="firstName">
-                
+
                 <label class="form_label" for="secondName">Segundo nombre</label>
                 <input class="form_text" type="text" name="secondName">
-                
+
                 <label class="form_label" for="firstSurname">Primer apellido</label>
                 <input class="form_text" type="text" name="firstSurname">
-                
+
                 <label class="form_label" for="secondSurname">Segundo apellido</label>
                 <input class="form_text" type="text" name="secondSurname">
-                
+
                 <label class="form_label" for="birthDate">Fecha de nacimiento</label>
                 <input class="form_text" type="text" name="birthDate">
-                
+
                 <label class="form_label" for="sex">Género</label>
                 <select name="sex" id="sex" class="form_select">
                     <option class="form_option" value="1">Masculino</option>
                     <option class="form_option" value="2">Femenino</option>
                 </select>
-                
+
                 <label class="form_label" for="id">Cedula</label>
                 <input class="form_text" type="text" name="id">
-                
+
                 <label class="form_label" for="phone">Telefono</label>
                 <input class="form_text" type="text" name="phone">
 
@@ -71,13 +67,16 @@
 
                 <label class="form_label" for="businessName">Nombre de la empresa</label>
                 <input class="form_text" type="text" name="businessName">
-                
+
                 <label class="form_label" for="businessLogo">Logo de la empresa</label>
                 <label class="form_fileContainer" for="businessLogo">
                     <label class="form_fileButton" for="businessLogo">Seleccionar imagen</label>
                     <input class="form_file" type="file" name="businessLogo" id="businessLogo">
                     <span class="form_fileName" id="imageName"></span>
                 </label>
+
+                <label class="form_label" for="businessLocation">Ubicación de los vehiculos</label>
+                <input class="form_text" type="text" name="businessName">
 
                 <script>
                     let input = document.getElementById("businessLogo");
@@ -101,6 +100,42 @@
         </form>
     </main>
     <script src="./headerSidebar.js"></script>
+    <script>
+        function obtenerUbicacion() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(mostrarUbicacion, mostrarError);
+            } else {
+                alert("La geolocalización no es compatible en este navegador");
+            }
+        }
+
+        function mostrarUbicacion(posicion) {
+            var latitud = posicion.coords.latitude;
+            var longitud = posicion.coords.longitude;
+
+            alert("Ubicación encontrada:\nLatitud: " + latitud + "\nLongitud: " + longitud);
+        }
+
+        function mostrarError(error) {
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    alert("El usuario ha denegado la solicitud de geolocalización.");
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    alert("La información de ubicación no está disponible.");
+                    break;
+                case error.TIMEOUT:
+                    alert("Se ha agotado el tiempo de espera para obtener la ubicación.");
+                    break;
+                case error.UNKNOWN_ERROR:
+                    alert("Se ha producido un error desconocido.");
+                    break;
+            }
+        }
+
+        // Llamar a la función para obtener la ubicación cuando la página cargue
+        obtenerUbicacion();
+    </script>
 </body>
 
 </html>

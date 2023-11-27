@@ -16,6 +16,8 @@ if ($_GET) {
     } else {
 
         if ($result->fetch_row()[0]) {
+            session_start();
+            $_SESSION["userName"]=$userName;
             header("Location: ./mainpage.php");
         } else {
             header("Location: ./login.php?userName=".$userName);
