@@ -22,7 +22,7 @@
     <?php include "./sidebar.php" ?>
 
     <main class="main">
-        <form action="./fleet.php" method="get" class="vehicle_form form">
+        <form action="./newVehicleController.php" method="get" class="vehicle_form form">
 
             <div class="form_header">
                 <h1 class="form_title">nuevo vehiculo</h1>
@@ -36,6 +36,9 @@
 
                 <label class="form_label" for="Year">Año</label>
                 <input class="form_text" type="text" name="year">
+
+                <label class="form_label" for="tankCapacity">Capacidad del tanque</label>
+                <input class="form_text" type="text" name="tankCapacity">
 
                 <label class="form_label" for="lpn">Placa</label>
                 <input class="form_text" type="text" name="lpn">

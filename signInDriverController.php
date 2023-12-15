@@ -15,12 +15,17 @@ if ($_GET) {
     $mail = $_GET['mail'];
     $userName = $_GET['userName'];
     $password = $_GET['password'];
+    $licenseType[] = $_GET['licenseType'];
+
 
     $sql = "SELECT signInDriverUser('$firstName', '$secondName', '$firstSurname', '$secondSurname', '$id', '$birthDate', $sex, $phone, '$mail', '$userName', '$password');";
-
-    // echo mysqli_query($conn,$sql);
-
+    
     $result = mysqli_query($conn, $sql);
+
+    for ($i = 1; $i < count($licenseType); $i++) {
+        $sql2 = "SELECT insertCategory(" . $licenseType[0] . ");";
+        $result2 = mysqli_query($conn, $sql2);
+    }
 
     if(!$result) {
         echo mysqli_error($conn);

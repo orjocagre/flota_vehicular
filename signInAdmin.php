@@ -11,6 +11,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rajdhani:wght@600&display=swap" rel="stylesheet">
 
 
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js'></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css' type='text/css' />
+
+
+
+
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
@@ -75,8 +84,104 @@
                     <span class="form_fileName" id="imageName"></span>
                 </label>
 
-                <label class="form_label" for="businessLocation">Ubicación de los vehiculos</label>
-                <input class="form_text" type="text" name="businessName">
+                <label class="form_label">Ubicación de los vehiculos</label>
+                <hr>
+                <label class="form_label" for="businessLatitude">Latitud</label>
+                <input id="txtLatitude" class="form_text txtLatitude" type="text" name="businessLatitude" value="">
+                <label class="form_label" for="businessLongitude">Longitud</label>
+                <input id="txtLongitude" class="form_text txtLongitude" type="text" name="businessLongitude" value="">
+
+                <label class="form_label">No sabe las coordenadas?</label>
+                <!-- <button href="./locationSelector.php" class="button">Buscar en el mapa</button> -->
+                <button type="button" onclick="abrirModal()" class="button">Buscar en el mapa</button>
+
+                <!-- Ventana Modal -->
+                <div id="miModal" class="modal">
+                    <div id="map" class="map map-modal"></div>
+
+
+
+
+                </div>
+
+
+                <script>
+                    var blackMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    const txtLng = document.getElementById('txtLongitude');
+                    const txtLat = document.getElementById('txtLatitude');
+
+                    mapboxgl.accessToken = 'pk.eyJ1Ijoib3Jqb2NhZ3JlIiwiYSI6ImNsbGp1NWdzZDFvNjIzbHBqZWpoMnJra3UifQ.xG5eM30Wq8fBcqdMcw-utA';
+                    const map = new mapboxgl.Map({
+                        container: 'map',
+                        // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+                        style: blackMode ? 'mapbox://styles/mapbox/dark-v11' : 'mapbox://styles/mapbox/streets-v12',
+                        center: [-86.3537846, 13.1036979],
+                        zoom: 14
+                    });
+
+                    map.on('style.load', loadMap);
+                    map.on('load', loadMap);
+
+                    var lng;
+                    var lat;
+
+                    map.on('load', () => {
+                        const geocoder = new MapboxGeocoder({
+                            // Initialize the geocoder
+                            accessToken: mapboxgl.accessToken, // Set the access token
+                            mapboxgl: mapboxgl, // Set the mapbox-gl instance
+                            zoom: 13, // Set the zoom level for geocoding results
+                            placeholder: 'Ingrese una dirección o un lugar' // This placeholder text will display in the search bar
+                        });
+                        // Add the geocoder to the map
+                        map.addControl(geocoder, 'top-left'); // Add the search box to the top left
+                    });
+
+                    function loadMap() {
+
+
+                    }
+
+                    let marker = null;
+                    map.on('click', function(e) {
+                        if (marker == null) {
+                            marker = new mapboxgl.Marker()
+                                .setLngLat(e.lngLat)
+                                .addTo(map);
+                        } else {
+                            marker.setLngLat(e.lngLat)
+                        }
+                        lng = e.lngLat.lng;
+                        lat = e.lngLat.lat;
+
+                        txtLng.value = lng;
+                        txtLat.value = lat;
+
+                        cerrarModal();
+
+
+
+
+                    });
+                </script>
+
+
+
+
+                <script>
+                    function abrirModal() {
+                        // Muestra la ventana modal
+                        document.getElementById('miModal').style.display = 'block';
+                        document.getElementById('map').style.display = 'block';
+                    }
+
+                    function cerrarModal() {
+                        // Oculta la ventana modal
+                        document.getElementById('miModal').style.display = 'none';
+                        document.getElementById('map').style.display = 'none';
+
+                    }
+                </script>
 
                 <script>
                     let input = document.getElementById("businessLogo");
@@ -113,7 +218,8 @@
             var latitud = posicion.coords.latitude;
             var longitud = posicion.coords.longitude;
 
-            alert("Ubicación encontrada:\nLatitud: " + latitud + "\nLongitud: " + longitud);
+            txtLng.value = longitud;
+            txtLat.value = latitud;
         }
 
         function mostrarError(error) {

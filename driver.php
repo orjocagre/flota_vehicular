@@ -29,7 +29,10 @@
     <?php include "./sidebar.php" ?>
 
     <main class="main">
-        <a class="button" href="./newDriver.php">Agregar Conductor</a>
+        <button id="btnGenerateCode" class="button">Generar Codigo Invitado</button>
+        <button class="button">Asignar vehiculo</button>
+        <button class="button">Agregar conductor</button>
+        <button class="button">Eliminar conductor</button>
     </main>
 
     <script src="./headerSidebar.js"></script>

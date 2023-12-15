@@ -16,9 +16,11 @@ if ($_GET) {
     $userName = $_GET['userName'];
     $password = $_GET['password'];
     $businessName = $_GET['businessName'];
-    $firstName = $_GET['businessLogo'];
+    $businessLogo = $_GET['firstName'];
+    $businessLatitude = $_GET['businessLatitude'];
+    $businessLongitude = $_GET['businessLongitude'];
 
-    $sql = "SELECT signInAdminUser('$firstName', '$secondName', '$firstSurname', '$secondSurname', '$id', '$birthDate', $sex, $phone, '$mail', '$userName', '$password', '$businessName', '$businessLogo');";
+    $sql = "SELECT signInAdminUser('$firstName', '$secondName', '$firstSurname', '$secondSurname', '$id', '$birthDate', $sex, $phone, '$mail', '$userName', '$password', '$businessName', '$businessLogo', $businessLatitude, $businessLongitude);";
 
     $result = mysqli_query($conn, $sql);
 

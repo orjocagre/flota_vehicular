@@ -26,7 +26,7 @@
     <?php include "./sidebar.php"; ?>
     <main class="main main-location">
 
-        <div id="map"></div>
+        <div id="map" class="map"></div>
         <!-- 
         <script>
 
@@ -353,16 +353,22 @@
 
 
         <script>
+            var blackMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
             mapboxgl.accessToken = 'pk.eyJ1Ijoib3Jqb2NhZ3JlIiwiYSI6ImNsbGp1NWdzZDFvNjIzbHBqZWpoMnJra3UifQ.xG5eM30Wq8fBcqdMcw-utA';
             const map = new mapboxgl.Map({
                 container: 'map',
                 // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
-                style: 'mapbox://styles/mapbox/streets-v12',
+                style: blackMode ? 'mapbox://styles/mapbox/dark-v11' : 'mapbox://styles/mapbox/streets-v12',
                 center: [-86.3537846, 13.1036979],
                 zoom: 14
             });
 
-            map.on('load', () => {
+            map.on('style.load', loadMap());
+            map.on('load', loadMap());
+
+            function loadMap() {
+
                 // Add an image to use as a custom marker
                 map.loadImage(
                     './iconos/carromapa2.png',
@@ -421,7 +427,8 @@
                         });
                     }
                 );
-            });
+
+            }
         </script>
 
 

@@ -64,35 +64,35 @@
                 <label class="form_label" for="mail">Correo</label>
                 <input class="form_text" type="text" name="mail">
 
-                <label class="form_label" for="licenseType">Licencia</label>
+                <label class="form_label" for="licenseType[]">Licencia</label>
 
 
                 <div class="form_checkboxContainer">
-                    <input class="form_checkbox" id="category1" type="checkbox" name="licenseType" value="">
+                    <input class="form_checkbox" id="category1" type="checkbox" name="licenseType[]" value="1">
                     <label class="form_label form_checkboxLabel" for="category1">Categoría 1</label>
                 </div>
                 <div class="form_checkboxContainer">
-                    <input class="form_checkbox" id="category2" type="checkbox" name="licenseType" value="">
+                    <input class="form_checkbox" id="category2" type="checkbox" name="licenseType[]" value="2">
                     <label class="form_label form_checkboxLabel" for="category2">Categoría 2</label>
                 </div>
                 <div class="form_checkboxContainer">
-                    <input class="form_checkbox" id="category3" type="checkbox" name="licenseType" value="">
+                    <input class="form_checkbox" id="category3" type="checkbox" name="licenseType[]" value="3">
                     <label class="form_label form_checkboxLabel" for="category3">Categoría 3</label>
                 </div>
                 <div class="form_checkboxContainer">
-                    <input class="form_checkbox" id="category4" type="checkbox" name="licenseType" value="">
+                    <input class="form_checkbox" id="category4" type="checkbox" name="licenseType[]" value="4">
                     <label class="form_label form_checkboxLabel" for="category4">Categoría 4</label>
                 </div>
                 <div class="form_checkboxContainer">
-                    <input class="form_checkbox" id="category5" type="checkbox" name="licenseType" value="">
+                    <input class="form_checkbox" id="category5" type="checkbox" name="licenseType[]" value="5">
                     <label class="form_label form_checkboxLabel" for="category5">Categoría 5</label>
                 </div>
                 <div class="form_checkboxContainer">
-                    <input class="form_checkbox" id="category6" type="checkbox" name="licenseType" value="">
+                    <input class="form_checkbox" id="category6" type="checkbox" name="licenseType[]" value="6">
                     <label class="form_label form_checkboxLabel" for="category6">Categoría 6</label>
                 </div>
                 <div class="form_checkboxContainer">
-                    <input class="form_checkbox" id="category7" type="checkbox" name="licenseType" value="">
+                    <input class="form_checkbox" id="category7" type="checkbox" name="licenseType[]" value="7">
                     <label class="form_label form_checkboxLabel" for="category7">Categoría 7</label>
                 </div>
 

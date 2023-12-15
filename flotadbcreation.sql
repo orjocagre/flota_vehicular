@@ -82,6 +82,8 @@ CREATE TABLE
         idBusiness INT AUTO_INCREMENT NOT NULL,
         name VARCHAR(100) NOT NULL,
         logo varchar(200) NOT NULL,
+        latitude DOUBLE NOT NULL,
+        longitude DOUBLE NOT NULL,
         PRIMARY KEY (idBusiness)
     );
 
@@ -96,6 +98,17 @@ CREATE TABLE
     );
 
 CREATE TABLE
+    driverCode (
+        idDriverCode INT AUTO_INCREMENT NOT NULL,
+        code VARCHAR(6) NOT NULL,
+        idBusiness INT NOT NULL,
+        date DATETIME NOT NULL,
+        PRIMARY KEY (idDriverCode),
+        CONSTRAINT FK_adminUser_business FOREIGN KEY (idBusiness) REFERENCES business(idBusiness)
+    );
+
+
+CREATE TABLE
     vehicleType (
         idVehicleType INT AUTO_INCREMENT NOT NULL,
         description VARCHAR(50) NOT NULL,
@@ -105,7 +118,7 @@ CREATE TABLE
 CREATE TABLE
     vehicle (
         idVehicle INT AUTO_INCREMENT NOT NULL,
-        lpm VARCHAR(50) NOT NULL,
+        lpn VARCHAR(50) NOT NULL,
         brand VARCHAR(100) NOT NULL,
         model VARCHAR(100) NOT NULL,
         year YEAR NOT NULL,
@@ -195,6 +208,8 @@ CREATE TABLE
 INSERT INTO sex (description) VALUES ("masculino"),("femenino");
 INSERT INTO category (description) VALUES ("categoría 1"),("categoría 2"),("categoría 3"),("categoría 4"),("categoría 5"),("categoría 6"),("categoría 7");
 INSERT INTO periodType (description) VALUES ("km"), ("dias");
+INSERT INTO vehicleType (description) VALUES ("motocicleta"), ("ciclomotor"), ("turismo pequeño"), ("turismo grande"), ("turismo pickup"), ("microbus"), ("autobus"), ("camión");
+
 
 -- ____________________procedures and functions_______________________________________________
 
@@ -236,7 +251,7 @@ BEGIN
 END $$
 
 
-CREATE FUNCTION signInAdminUser(firstName VARCHAR(30), secondName VARCHAR(30), firstSurname VARCHAR(30), secondSurname VARCHAR(30), identification VARCHAR(30), birthDate DATE, idSex INT, phone INT, mail VARCHAR(50), userName VARCHAR(40), password VARCHAR(40), name VARCHAR(100), logo varchar(200))
+CREATE FUNCTION signInAdminUser(firstName VARCHAR(30), secondName VARCHAR(30), firstSurname VARCHAR(30), secondSurname VARCHAR(30), identification VARCHAR(30), birthDate DATE, idSex INT, phone INT, mail VARCHAR(50), userName VARCHAR(40), password VARCHAR(40), name VARCHAR(100), logo varchar(200), latitude DOUBLE, longitude DOUBLE)
 RETURNS INT
 READS SQL DATA
 BEGIN
@@ -259,13 +274,30 @@ BEGIN
     INSERT INTO user (userName, password, idPerson) VALUES (userName, password, idPerson);
     SET idUser = LAST_INSERT_ID();
     
-    INSERT INTO business (name, logo) VALUES (name, logo);
+    INSERT INTO business (name, logo, latitude, longitude) VALUES (name, logo, latitude, longitude);
     SET idBusiness = LAST_INSERT_ID();
 
     INSERT INTO adminUser (idUser, idBusiness) VALUES (idUser, idBusiness);
     SET idAdminUser = LAST_INSERT_ID();
 
     RETURN idAdminUser;
+END $$
+
+
+CREATE FUNCTION insertVehicle(lpn VARCHAR(50), brand VARCHAR(100), model VARCHAR(100), year YEAR, tankCapacity FLOAT, idVehicleType INT, userName VARCHAR(100))
+RETURNS INT
+READS SQL DATA
+BEGIN
+
+    DECLARE idVehicle INT;
+    DECLARE idBusiness INT;
+
+    SELECT adminUser.idBusiness INTO idBusiness FROM adminUser, user WHERE adminUser.idUser = user.idUser AND user.userName = userName;
+
+    INSERT INTO vehicle(lpn, brand, model, year, tankCapacity, idVehicleType, idBusiness) VALUES(lpn, brand, model, year, tankCapacity, idVehicleType, idBusiness);
+    SET idVehicle = LAST_INSERT_ID();
+
+    RETURN idVehicle;
 END $$
 
 
@@ -286,10 +318,12 @@ DELIMITER ;
 
 -- SELECT signInDriverUser("Orlando", "Jose", "Caceres", "Green", "C3", "2019-01-01", 1, 87126887, "orlando114@gmail.com", "orla4", "contra");
 
--- DROP PROCEDURE IF EXISTS insertCategory;
+-- DROP FUNCTION IF EXISTS insertVehicle;
 
 -- SELECT * FROM person;
 -- SELECT * FROM user;
 -- SELECT * FROM business;
 -- SELECT COUNT(*) FROM user WHERE user.userName = "Pedro5" AND user.password = "cont";
 -- SELECT name FROM business WHERE business.idBusiness = adminUser.idBusiness;
+
+    -- SELECT insertVehicle('a', 's', 'r', '1999', 23, 1, 'a');

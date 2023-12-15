@@ -1,10 +1,13 @@
 const dark_mode = document.querySelectorAll('.darkButton');
 dark_mode.forEach(element => {
     element.addEventListener('click', () => {
+        if (document.body.classList.contains('body-darkMode'))
+            map.setStyle('mapbox://styles/mapbox/streets-v11');
+        else
+            map.setStyle('mapbox://styles/mapbox/dark-v11');
+
         document.body.classList.toggle('body-darkMode');
         blackMode = !blackMode;
-        initMap();
-        // google.maps.event.trigger(map, 'resize');
     });
 });
 

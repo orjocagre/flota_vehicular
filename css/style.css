@@ -351,7 +351,7 @@ body {
 
 .main-location {
     height: 100vh;
-    
+
 }
 
 .main-form {
@@ -360,6 +360,7 @@ body {
     padding: 70px 0px 0px 0px;
     display: flex;
 }
+
 .main-statistics {
     display: flex;
     flex-flow: wrap;
@@ -367,17 +368,19 @@ body {
     padding: 10px;
     padding-top: 80px;
 }
+
 .main-hidden {
     display: none;
 }
 
 /* --------------------------------location */
-#map {
+.map {
     height: 100%;
     width: calc(100% - 1px);
     background-color: gray;
     transform: translateX(1px);
 }
+
 /* --------------------------------fin location */
 
 
@@ -414,6 +417,7 @@ body {
     background-color: var(--light);
     border-bottom: 1px solid var(--base);
 }
+
 .sideBar_item-selected {
     background-color: var(--light);
     border-top: 1px solid var(--base);
@@ -479,11 +483,13 @@ body {
     flex-direction: column;
     min-height: calc(100vh - 70px);
 }
-.form_header {  
+
+.form_header {
     background: linear-gradient(90deg, var(--light), var(--light2));
     padding: 30px;
     display: flex;
 }
+
 .form_body {
     padding: 30px;
     background-color: var(--white);
@@ -500,18 +506,22 @@ body {
     padding: 30px;
     flex-wrap: wrap;
 }
+
 .form_title {
     font-size: 3.5rem;
     color: var(--base);
 }
+
 .form_label {
     margin-top: 3rem;
     font-size: 2.2rem;
     color: var(--base);
 }
+
 .form_label:nth-child(1) {
     margin-top: 0;
 }
+
 .form_text {
     font-size: 2.2rem;
     line-height: 2;
@@ -522,6 +532,7 @@ body {
     border-radius: 5px;
     color: var(--base);
 }
+
 .form_fileContainer {
     display: flex;
     flex-wrap: wrap;
@@ -532,6 +543,7 @@ body {
     line-height: 2;
 
 }
+
 .form_fileButton {
     /* border: 1px solid var(--base); */
     background-color: var(--light2);
@@ -541,6 +553,7 @@ body {
     padding-right: 5px;
     border: 1px solid var(--base);
 }
+
 .form_fileName {
     color: var(--primary);
     margin-left: 5px;
@@ -550,12 +563,15 @@ body {
 .form_file {
     display: none;
 }
+
 .form_checkboxContainer {
     margin-top: 5px;
 }
+
 .form_checkboxLabel {
     cursor: pointer;
 }
+
 .form_checkbox {
     cursor: pointer;
     width: 20px;
@@ -571,13 +587,16 @@ body {
     border: 1px solid var(--base);
     border-radius: 5px;
 }
+
 .form_option {
     background-color: var(--white);
     color: var(--base);
 }
+
 .form_option:hover {
     background-color: var(--light);
 }
+
 .button {
     font-weight: 500;
     font-size: 2.2rem;
@@ -590,7 +609,9 @@ body {
     background-color: transparent;
     color: var(--base);
     text-decoration: none;
+    text-align: center;
 }
+
 .button:hover {
     background-color: var(--secondary);
     color: white;
@@ -611,6 +632,28 @@ body {
     border-radius: 5px;
     margin: 10px;
 
+}
+
+.mapboxgl-ctrl-geocoder {
+    width: 600px;
+}
+
+/* Estilo para la ventana modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.map-modal {
+    position: absolute;
+    top: 12%;
+    left: 12%;
+    width: 75%;
+    height: 75%;
 }
 
 
@@ -668,6 +711,7 @@ body {
         height: calc(100vh - 70px);
         overflow-y: auto;
     }
+
     .sideBar_item:hover {
         background-color: var(--light);
     }
@@ -684,7 +728,7 @@ body {
         display: none;
     }
 
-    
+
     .statisticContainer {
         height: 450px;
         max-width: 500;
@@ -693,7 +737,7 @@ body {
         background-color: var(--white);
         border-radius: 5px;
         margin: 10px;
-    
+
     }
 
     .statisticContainer_large {
@@ -774,6 +818,7 @@ body {
         align-items: center;
         padding: 100px 30px 30px 30px;
     }
+
     .form {
         flex-direction: row;
         width: 90%;
@@ -782,7 +827,8 @@ body {
         justify-content: center;
         align-items: start;
     }
-    .form_header { 
+
+    .form_header {
         display: block;
         position: fixed;
         left: calc(((250px / 2) + 50vw) - 40px);
@@ -791,6 +837,7 @@ body {
         padding: 25px 0 25px 65px;
         background: linear-gradient(90deg, var(--light2), var(--light));
     }
+
     .form_body {
         z-index: 2;
         margin-right: 50%;
@@ -799,7 +846,7 @@ body {
         border-radius: 10px;
         flex: auto;
     }
-    
+
     .form_footer {
         flex-wrap: nowrap;
         position: fixed;
@@ -810,10 +857,11 @@ body {
         flex-direction: row;
         justify-content: start;
         margin-top: calc(188px);
-    
+
     }
+
     .form_title {
         font-size: 6rem;
     }
-    
+
 }

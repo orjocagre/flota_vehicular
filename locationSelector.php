@@ -12,7 +12,8 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
 
-
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js'></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css' type='text/css' />
 
 
 
@@ -22,408 +23,63 @@
 </head>
 
 <body>
-    <?php include "./header.php"; ?>
-    <?php include "./sidebar.php"; ?>
+    <!-- <?php include "./header.php"; ?> -->
+    <!-- <?php include "./sidebar.php"; ?> -->
     <main class="main main-location">
 
-        <div id="map"></div>
-        <!-- 
+        <div id="map" class="map"></div>
+
         <script>
-
-            var map = L.map('map').setView([51.505, -0.09],13);
-
-
-
             var blackMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-            // const darkStyles = [{
-            //         elementType: "geometry",
-            //         stylers: [{
-            //             color: "#213635"
-            //         }]
-            //     },
-            //     {
-            //         elementType: "labels.text.stroke",
-            //         stylers: [{
-            //             color: "#213635"
-            //         }]
-            //     },
-            //     {
-            //         elementType: "labels.text.fill",
-            //         stylers: [{
-            //             color: "#746855"
-            //         }]
-            //     },
-            //     {
-            //         featureType: "administrative.locality",
-            //         elementType: "labels.text.fill",
-            //         stylers: [{
-            //             color: "#d59563"
-            //         }],
-            //     },
-            //     {
-            //         featureType: "poi",
-            //         elementType: "labels.text.fill",
-            //         stylers: [{
-            //             color: "#d59563"
-            //         }],
-            //     },
-            //     {
-            //         featureType: "poi.park",
-            //         elementType: "geometry",
-            //         stylers: [{
-            //             color: "#263c3f"
-            //         }],
-            //     },
-            //     {
-            //         featureType: "poi.park",
-            //         elementType: "labels.text.fill",
-            //         stylers: [{
-            //             color: "#6b9a76"
-            //         }],
-            //     },
-            //     {
-            //         featureType: "road",
-            //         elementType: "geometry",
-            //         stylers: [{
-            //             color: "#38414e"
-            //         }],
-            //     },
-            //     {
-            //         featureType: "road",
-            //         elementType: "geometry.stroke",
-            //         stylers: [{
-            //             color: "#212a37"
-            //         }],
-            //     },
-            //     {
-            //         featureType: "road",
-            //         elementType: "labels.text.fill",
-            //         stylers: [{
-            //             color: "#9ca5b3"
-            //         }],
-            //     },
-            //     {
-            //         featureType: "road.highway",
-            //         elementType: "geometry",
-            //         stylers: [{
-            //             color: "#746855"
-            //         }],
-            //     },
-            //     {
-            //         featureType: "road.highway",
-            //         elementType: "geometry.stroke",
-            //         stylers: [{
-            //             color: "#1f2835"
-            //         }],
-            //     },
-            //     {
-            //         featureType: "road.highway",
-            //         elementType: "labels.text.fill",
-            //         stylers: [{
-            //             color: "#f3d19c"
-            //         }],
-            //     },
-            //     {
-            //         featureType: "transit",
-            //         elementType: "geometry",
-            //         stylers: [{
-            //             color: "#2f3948"
-            //         }],
-            //     },
-            //     {
-            //         featureType: "transit.station",
-            //         elementType: "labels.text.fill",
-            //         stylers: [{
-            //             color: "#d59563"
-            //         }],
-            //     },
-            //     {
-            //         featureType: "water",
-            //         elementType: "geometry",
-            //         stylers: [{
-            //             color: "#17263c"
-            //         }],
-            //     },
-            //     {
-            //         featureType: "water",
-            //         elementType: "labels.text.fill",
-            //         stylers: [{
-            //             color: "#515c6d"
-            //         }],
-            //     },
-            //     {
-            //         featureType: "water",
-            //         elementType: "labels.text.stroke",
-            //         stylers: [{
-            //             color: "#17263c"
-            //         }],
-            //     },
-            //     {
-            //         "featureType": "poi",
-            //         "elementType": "labels.text",
-            //         "stylers": [{
-            //             "visibility": "off" // Oculta las etiquetas de puntos de interés
-            //         }]
-            //     },
-            //     {
-            //         "featureType": "road",
-            //         "elementType": "labels.text",
-            //         "stylers": [{
-            //             "visibility": "off" // Oculta las etiquetas de nombres de calles
-            //         }]
-            //     },
-            //     {
-            //         "featureType": "road",
-            //         "elementType": "labels.icon",
-            //         "stylers": [{
-            //             "visibility": "off" // Oculta los iconos de nombres de calles
-            //         }]
-            //     },
-            //     {
-            //         featureType: "poi",
-            //         elementType: "labels",
-            //         stylers: [{
-            //                 visibility: "off"
-            //             } // Oculta etiquetas de puntos de interés
-            //         ]
-            //     },
-            //     {
-            //         featureType: "transit",
-            //         elementType: "labels",
-            //         stylers: [{
-            //                 visibility: "off"
-            //             } // Oculta etiquetas de transporte público
-            //         ]
-            //     },
-            //     {
-            //         featureType: "road",
-            //         elementType: "labels",
-            //         stylers: [{
-            //                 visibility: "off"
-            //             } // Oculta etiquetas de nombres de calles
-            //         ]
-            //     },
-            //     {
-            //         featureType: "administrative",
-            //         elementType: "labels",
-            //         stylers: [{
-            //                 visibility: "off"
-            //             } // Oculta las etiquetas administrativas (ciudades, sectores, etc.)
-            //         ]
-            //     },
-            //     {
-            //         featureType: "poi",
-            //         elementType: "labels",
-            //         stylers: [{
-            //                 visibility: "off"
-            //             } // Oculta etiquetas de puntos de interés
-            //         ]
-            //     },
-            //     {
-            //         featureType: "transit",
-            //         elementType: "labels",
-            //         stylers: [{
-            //                 visibility: "off"
-            //             } // Oculta etiquetas de transporte público
-            //         ]
-            //     },
-            //     {
-            //         featureType: "road",
-            //         elementType: "labels",
-            //         stylers: [{
-            //                 visibility: "off"
-            //             } // Oculta etiquetas de nombres de calles
-            //         ]
-            //     },
-            //     {
-            //         featureType: "water",
-            //         elementType: "labels",
-            //         stylers: [{
-            //                 visibility: "off"
-            //             } // Oculta las etiquetas de los cuerpos de agua (ríos, lagos, etc.)
-            //         ]
-            //     },
-            // ];
-
-
-            // const lightStyles = [{
-            //         "featureType": "poi",
-            //         "elementType": "labels.text",
-            //         "stylers": [{
-            //             "visibility": "off" // Oculta las etiquetas de puntos de interés
-            //         }]
-            //     },
-            //     {
-            //         "featureType": "road",
-            //         "elementType": "labels.text",
-            //         "stylers": [{
-            //             "visibility": "off" // Oculta las etiquetas de nombres de calles
-            //         }]
-            //     },
-            //     {
-            //         "featureType": "road",
-            //         "elementType": "labels.icon",
-            //         "stylers": [{
-            //             "visibility": "off" // Oculta los iconos de nombres de calles
-            //         }]
-            //     },
-            //     {
-            //         featureType: "poi",
-            //         elementType: "labels",
-            //         stylers: [{
-            //                 visibility: "off"
-            //             } // Oculta etiquetas de puntos de interés
-            //         ]
-            //     },
-            //     {
-            //         featureType: "transit",
-            //         elementType: "labels",
-            //         stylers: [{
-            //                 visibility: "off"
-            //             } // Oculta etiquetas de transporte público
-            //         ]
-            //     },
-            //     {
-            //         featureType: "road",
-            //         elementType: "labels",
-            //         stylers: [{
-            //                 visibility: "off"
-            //             } // Oculta etiquetas de nombres de calles
-            //         ]
-            //     },
-            //     {
-            //         featureType: "administrative",
-            //         elementType: "labels",
-            //         stylers: [{
-            //                 visibility: "off"
-            //             } // Oculta las etiquetas administrativas (ciudades, sectores, etc.)
-            //         ]
-            //     },
-            //     {
-            //         featureType: "poi",
-            //         elementType: "labels",
-            //         stylers: [{
-            //                 visibility: "off"
-            //             } // Oculta etiquetas de puntos de interés
-            //         ]
-            //     },
-            //     {
-            //         featureType: "transit",
-            //         elementType: "labels",
-            //         stylers: [{
-            //                 visibility: "off"
-            //             } // Oculta etiquetas de transporte público
-            //         ]
-            //     },
-            //     {
-            //         featureType: "road",
-            //         elementType: "labels",
-            //         stylers: [{
-            //                 visibility: "off"
-            //             } // Oculta etiquetas de nombres de calles
-            //         ]
-            //     },
-            //     {
-            //         featureType: "water",
-            //         elementType: "labels",
-            //         stylers: [{
-            //                 visibility: "off"
-            //             } // Oculta las etiquetas de los cuerpos de agua (ríos, lagos, etc.)
-            //         ]
-            //     },
-            // ];
-
-            // var map;
-
-            // function initMap() {
-            //     var location = {
-            //         lat: 12.1328200,
-            //         lng: -86.2504000
-            //     };
-
-            //     map = new google.maps.Map(document.getElementById("map"), {
-            //         zoom: 4,
-            //         center: location,
-            //         zoom: 14,
-            //         styles: blackMode ? darkStyles : lightStyles
-            //     });
-            // }
-        </script> -->
-
-
-        <script>
             mapboxgl.accessToken = 'pk.eyJ1Ijoib3Jqb2NhZ3JlIiwiYSI6ImNsbGp1NWdzZDFvNjIzbHBqZWpoMnJra3UifQ.xG5eM30Wq8fBcqdMcw-utA';
             const map = new mapboxgl.Map({
                 container: 'map',
                 // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
-                style: 'mapbox://styles/mapbox/streets-v12',
+                style: blackMode ? 'mapbox://styles/mapbox/dark-v11' : 'mapbox://styles/mapbox/streets-v12',
                 center: [-86.3537846, 13.1036979],
                 zoom: 14
             });
 
-            map.on('load', () => {
-                // Add an image to use as a custom marker
-                map.loadImage(
-                    './iconos/carromapa2.png',
-                    (error, image) => {
-                        if (error) throw error;
-                        map.addImage('custom-marker', image);
-                        // Add a GeoJSON source with 2 points
-                        map.addSource('points', {
-                            'type': 'geojson',
-                            'data': {
-                                'type': 'FeatureCollection',
-                                'features': [{
-                                        // feature for Mapbox DC
-                                        'type': 'Feature',
-                                        'geometry': {
-                                            'type': 'Point',
-                                            'coordinates': [
-                                                -86.3538400, 13.0918500
-                                            ]
-                                        },
-                                        'properties': {
-                                            'title': 'Polo'
-                                        }
-                                    },
-                                    {
-                                        // feature for Mapbox SF
-                                        'type': 'Feature',
-                                        'geometry': {
-                                            'type': 'Point',
-                                            'coordinates': [-86.3438400, 13.0818500]
-                                        },
-                                        'properties': {
-                                            'title': 'Marco'
-                                        }
-                                    }
-                                ]
-                            }
-                        });
+            map.on('style.load', loadMap);
+            map.on('load', loadMap);
 
-                        // Add a symbol layer
-                        map.addLayer({
-                            'id': 'points',
-                            'type': 'symbol',
-                            'source': 'points',
-                            'layout': {
-                                'icon-image': 'custom-marker',
-                                // get the title name from the source's "title" property
-                                'text-field': ['get', 'title'],
-                                'text-font': [
-                                    'Open Sans Semibold',
-                                    'Arial Unicode MS Bold'
-                                ],
-                                'text-offset': [0, 1.25],
-                                'text-anchor': 'top'
-                            }
-                        });
-                    }
-                );
+            var lng;
+            var lat;
+
+            map.on('load', () => {
+                const geocoder = new MapboxGeocoder({
+                    // Initialize the geocoder
+                    accessToken: mapboxgl.accessToken, // Set the access token
+                    mapboxgl: mapboxgl, // Set the mapbox-gl instance
+                    zoom: 13, // Set the zoom level for geocoding results
+                    placeholder: 'Ingrese una dirección o un lugar' // This placeholder text will display in the search bar
+                });
+                // Add the geocoder to the map
+                map.addControl(geocoder, 'top-left'); // Add the search box to the top left
+            });
+
+            function loadMap() {
+
+
+            }
+
+            let marker = null;
+            map.on('click', function(e) {
+                if (marker == null) {
+                    marker = new mapboxgl.Marker()
+                        .setLngLat(e.lngLat)
+                        .addTo(map);
+                } else {
+                    marker.setLngLat(e.lngLat)
+                }
+                lng = e.lngLat.lng;
+                lat = e.lngLat.lat;
+
+                window.location.href = './signInAdmin.php?lng='+lng+'&lat='+lat;
+
             });
         </script>
-
 
 
     </main>
